@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List - Farel</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="relative mx-auto max-w-3xl px-6 py-10 text-teal-500">
+      <h1
+        class="text-3xl sm:text-4xl font-extrabold tracking-tight drop-shadow"
+      >
+        Todo List — Farel
+      </h1>
+    </div>
+
+    <main class="px-4">
+      <section class="mx-auto max-w-3xl -mt-6">
+        <div
+          class="rounded-2xl bg-white shadow-lg ring-1 ring-black/5 p-5 sm:p-6"
+        >
+          <!-- Form -->
+          <form id="todo-form" class="flex flex-col sm:flex-row gap-3">
+            <input
+              class="flex-1 rounded-xl border border-slate-200 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              type="text"
+              id="todo-input"
+              placeholder="What do you need to do?"
+            />
+            <input
+              class="rounded-xl border border-slate-200 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              type="date"
+              id="todo-date"
+            />
+            <button
+              class="rounded-xl px-4 py-2 font-medium text-white bg-teal-500 hover:bg-teal-600 active:bg-teal-700 shadow-sm transition"
+              type="submit"
+              id="add-todo-btn"
+            >
+              Add Todo
+            </button>
+            <button
+              class="rounded-xl px-4 py-2 font-medium bg-slate-200 text-slate-900 hover:bg-slate-300 active:bg-slate-400 shadow-sm transition hidden"
+              type="button"
+              id="cancel-edit-btn"
+            >
+              Cancel
+            </button>
+          </form>
+
+          <p id="edit-hint" class="text-sm text-teal-700 mt-3 hidden">
+            Editing mode: update the fields, then click <b>Save</b>.
+          </p>
+
+          <!-- Actions, Filter, Search -->
+          <div
+            class="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div class="flex gap-2">
+              <select
+                id="filter-status"
+                class="rounded-xl border border-slate-200 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              >
+                <option value="all">Status: All</option>
+                <option value="active">Status: Active</option>
+                <option value="completed">Status: Completed</option>
+              </select>
+
+              <select
+                id="filter-due"
+                class="rounded-xl border border-slate-200 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              >
+                <option value="all">Due: All</option>
+                <option value="overdue">Due: Overdue</option>
+                <option value="today">Due: Today</option>
+                <option value="upcoming">Due: Upcoming</option>
+              </select>
+            </div>
+
+            <div class="flex gap-2">
+              <input
+                id="filter-search"
+                type="text"
+                placeholder="Search todo…"
+                class="rounded-xl border border-slate-200 px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400"
+              />
+              <button
+                id="clear-all-btn"
+                class="rounded-xl px-3 py-2 font-medium bg-rose-500 text-white hover:bg-rose-700 active:bg-slate-300 shadow-sm transition"
+                type="button"
+              >
+                Clear All
+              </button>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="mt-4 overflow-x-auto rounded-xl border border-slate-200">
+            <table class="w-full table-fixed">
+              <thead class="bg-slate-50 sticky top-0">
+                <tr>
+                  <th class="w-[20%] text-left p-3 border-b text-slate-600">
+                    Todo
+                  </th>
+                  <th class="w-[20%] text-left p-3 border-b text-slate-600">
+                    Due Date
+                  </th>
+                  <th class="w-[20%] text-left p-3 border-b text-slate-600">
+                    Status
+                  </th>
+                  <th class="w-[15%] text-left p-3 border-b text-slate-600">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                id="todo-tbody"
+                class="[&_tr:nth-child(odd)]:bg-white [&_tr:nth-child(even)]:bg-slate-50"
+              >
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Footer hint and copyright -->
+          <p class="mt-4 text-xs text-slate-500">
+            Tip: press
+            <kbd
+              class="rounded border px-1.5 py-0.5 border-slate-300 bg-slate-100"
+              >Enter</kbd
+            >
+            to add quickly.
+          </p>
+        </div>
+
+        <footer class="py-6 text-center text-slate-500 text-sm">
+          &copy; 2025 Todo List Website — Farel
+        </footer>
+      </section>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
