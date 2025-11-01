@@ -170,7 +170,6 @@ function renderTodos() {
 
       return `
         <tr class="hover:bg-teal-50 transition">
-          <td class="p-3 border-b ${rowText}">${escapeHtml(todo.task)}</td>
           <td class="p-3 border-b ${rowText}">${dateText}</td>
           <td class="p-3 border-b">
             <div class="flex items-center gap-2">
